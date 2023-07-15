@@ -11,8 +11,11 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
+
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
+import useAuthCall from "../hooks/useAuthCall";
 
 const pages = [
   {
@@ -21,18 +24,29 @@ const pages = [
   },
   {
     title: "NEW BLOG",
-    url: "newblog",
+    url: "/newblog",
   },
   {
     title: "ABOUT",
-    url: "about",
+    url: "/about",
   },
 ];
-const settings = ["Login"];
+const settings = [
+  { title: "Profile", url: "/profile" },
+  { title: "My Blogs", url: "/myblogs" },
+  { title: "LOGOUT", url: "/" },
+];
+const settingPublic = [
+  { title: "LOGİN", url: "/login" },
+  { title: "REGİSTER", url: "/register" },
+];
 function NavBar() {
-  
+  const { currentUser } = useSelector((state) => state.auth);
+  const { Logout } = useAuthCall();
+
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
+
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -41,7 +55,6 @@ function NavBar() {
   };
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
-    
   };
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
@@ -99,7 +112,12 @@ function NavBar() {
             >
               {/* MOBILE MENU ----------------------------------------- */}
               {pages?.map((page, index) => (
-                <MenuItem key={index} onClick={handleCloseNavMenu} component={NavLink} to={page.url}>
+                <MenuItem
+                  key={index}
+                  onClick={handleCloseNavMenu}
+                  component={NavLink}
+                  to={page.url}
+                >
                   <Typography textAlign="center">{page.title}</Typography>
                 </MenuItem>
               ))}
@@ -130,17 +148,26 @@ function NavBar() {
               <Button
                 key={index}
                 onClick={handleCloseNavMenu}
-                component={NavLink} to={page.url}
+                component={NavLink}
+                to={page.url}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
                 {page.title}
               </Button>
             ))}
           </Box>
+          {/* ************************************************************ */}
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                {currentUser?.image ? (
+                  <Avatar
+                    title={currentUser.first_name}
+                    src={currentUser.image}
+                  />
+                ) : (
+                  <Avatar src="https://w7.pngwing.com/pngs/304/275/png-transparent-user-profile-computer-icons-profile-miscellaneous-logo-monochrome-thumbnail.png" />
+                )}
               </IconButton>
             </Tooltip>
             <Menu
@@ -159,11 +186,27 @@ function NavBar() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
+              {currentUser
+                ? settings.map((setting, index) =>
+                    setting.title === "LOGOUT" ? (
+                      <MenuItem key={index} onClick={handleCloseUserMenu}>
+                        <Button onClick={Logout}>{setting.title}</Button>
+                      </MenuItem>
+                    ) : (
+                      <MenuItem key={index} onClick={handleCloseUserMenu}>
+                        <Button component={NavLink} to={setting.url}>
+                          {setting.title}
+                        </Button>
+                      </MenuItem>
+                    )
+                  )
+                : settingPublic.map((setting, index) => (
+                    <MenuItem key={index} onClick={handleCloseUserMenu}>
+                      <Button component={NavLink} to={setting.url}>
+                        {setting.title}
+                      </Button>
+                    </MenuItem>
+                  ))}
             </Menu>
           </Box>
         </Toolbar>
