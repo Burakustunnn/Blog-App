@@ -1,8 +1,9 @@
-import { Avatar, Container, Grid, Typography } from "@mui/material";
+import { Avatar, Box, Container, Grid, Typography } from "@mui/material";
 import LockIcon from "@mui/icons-material/Lock";
 import { Formik } from "formik";
 import RegisterForm, { registerSchema } from "../components/auth/RegisterForm";
 import useAuthCall from "../hooks/useAuthCall";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const { register } = useAuthCall();
@@ -12,7 +13,10 @@ const Register = () => {
         container
         rowSpacing={{ sm: 3 }}
         justifyContent="center"
-        sx={{ p: 3 }}
+        sx={{
+          height: "100vh",
+          p: 2,
+        }}
       >
         <Grid item xs={12}>
           <Typography variant="h4" color="primary" align="center">
@@ -57,6 +61,9 @@ const Register = () => {
             }}
             component={(props) => <RegisterForm {...props} />}
           ></Formik>
+          <Box sx={{ textAlign: "center", mt: 2 }}>
+            <Link to="/login">Do you have a Registered Account?</Link>
+          </Box>
         </Grid>
       </Grid>
     </Container>

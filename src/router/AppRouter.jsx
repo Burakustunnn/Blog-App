@@ -1,4 +1,3 @@
-import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Dashboard from "../pages/Dashboard";
 import NavBar from "../components/NavBar";
@@ -20,10 +19,10 @@ const AppRouter = () => {
       <NavBar />
       <Routes>
         <Route path="/login" element={<Login />} />
-        <Route path="/about" element={<About />} />
         <Route path="/register" element={<Register />} />
         <Route path="" element={<PrivateRouter />}>
           <Route path="/" element={<Dashboard />} />
+          <Route path="/about" element={<About />} />
           <Route path="/newblog" element={<NewBlog />} />
           <Route path="/myblogs" element={<MyBlogs />} />
           <Route path="detail/:id" element={<Detail />} />

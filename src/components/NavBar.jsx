@@ -166,7 +166,7 @@ function NavBar() {
                     src={currentUser.image}
                   />
                 ) : (
-                  <Avatar src="https://w7.pngwing.com/pngs/304/275/png-transparent-user-profile-computer-icons-profile-miscellaneous-logo-monochrome-thumbnail.png" />
+                  <Avatar src="https://media.istockphoto.com/id/1223671392/tr/vekt%C3%B6r/varsay%C4%B1lan-profil-resmi-avatar-foto%C4%9Fraf-yer-tutucusu-vekt%C3%B6r-%C3%A7izimi.jpg?s=170667a&w=0&k=20&c=wFPiJjl8-y44syqhCB1syK9KBqd-HH5gihASLfeI5cY=" />
                 )}
               </IconButton>
             </Tooltip>
