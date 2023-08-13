@@ -3,10 +3,10 @@ import {
   CardActions,
   CardContent,
   CardMedia,
-  Grid,
   IconButton,
   Typography,
 } from "@mui/material";
+import Box from "@mui/material/Box";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import YouTubeIcon from "@mui/icons-material/YouTube";
@@ -27,66 +27,87 @@ const iconYou = {
 
 const About = () => {
   return (
-    <>
-      <Grid
-        container
+    <Box
+      sx={{
+        minHeight: "90vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "5rem",
+      }}
+    >
+      <Card
         sx={{
-          minHeight: "90vh",
           display: "flex",
-          alignItems: "center",
+          justifyContent: "center",
+          alignItems: "center",          
+          display: "flex",
+          flexDirection: "column",
+          boxShadow:
+            "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset",
+          padding: "2rem",
+          gap: "1rem",
+          borderRadius:"11rem"
         }}
-        align="center"
       >
-        <Grid item xs={12}>
-          <Card
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "70",
+          }}
+        >
+          <CardMedia
+            height="70"
+            component="img"
+            alt="images"
+            image="https://yt3.googleusercontent.com/Pxy6Gs0TFirxYVZe23JT0-k77vh_3uwvUn0tIwWPlZImCMz5c9BEiXo5AyrZtVHQ0DdV8uA5uQ=s900-c-k-c0x00ffffff-no-rj"
             sx={{
-              maxWidth: 345,
-              height: "50vh",
+              objectFit: "contain",
               display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
               justifyContent: "center",
-              boxShadow:
-                "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset",
+              alignItems: "center",
+              height: "70",
+              width: "25",
             }}
+          />
+        </Box>
+
+        <CardContent>
+          <Typography
+            variant="h2"
+            align="center"
+            sx={{ fontFamily: "fantasy" }}
           >
-            <CardMedia
-              height="70"
-              component="img"
-              alt="images"
-              image="https://clarusway.com/wp-content/uploads/2022/12/clarusway-new-logo-white-300x78.png"
-              sx={{ objectFit: "contain" }}
-            />
-            <CardContent>
-              <Typography
-                variant="h2"
-                align="center"
-                sx={{ fontFamily: "fantasy" }}
-              >
-                Clarusway
-              </Typography>
-              <Typography variant="h6" align="center">
-                Full Stack Team
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <IconButton>
-                <LinkedInIcon fontSize="large" sx={iconIn} />
-              </IconButton>
-              <IconButton>
-                <TwitterIcon fontSize="large" sx={iconIn} />
-              </IconButton>
-              <IconButton>
-                <YouTubeIcon fontSize="large" sx={iconYou} />
-              </IconButton>
-              <IconButton>
-                <InstagramIcon fontSize="large" sx={iconYou} />
-              </IconButton>
-            </CardActions>
-          </Card>
-        </Grid>
-      </Grid>
-    </>
+            Burak ÜSTÜN
+          </Typography>
+          <Typography variant="h6" align="center">
+            Frontend Developer
+          </Typography>
+        </CardContent>
+        <CardActions
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <IconButton>
+            <LinkedInIcon fontSize="large" sx={iconIn} />
+          </IconButton>
+          <IconButton>
+            <TwitterIcon fontSize="large" sx={iconIn} />
+          </IconButton>
+          <IconButton>
+            <YouTubeIcon fontSize="large" sx={iconYou} />
+          </IconButton>
+          <IconButton>
+            <InstagramIcon fontSize="large" sx={iconYou} />
+          </IconButton>
+        </CardActions>
+      </Card>
+    </Box>
   );
 };
 

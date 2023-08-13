@@ -13,7 +13,7 @@ import { useSelector } from "react-redux";
 import useBlogCalls from "../../hooks/useBlogCalls";
 
 const BlogForm = () => {
-  const {postBlogData, getBlogData} = useBlogCalls()
+  const { postBlogData, getBlogData } = useBlogCalls();
   const { categories } = useSelector((state) => state.blog);
   const [info, setInfo] = useState({
     title: "",
@@ -24,7 +24,6 @@ const BlogForm = () => {
     slug: "",
   });
 
-  
   const handleSubmit = (e) => {
     e.preventDefault();
     postBlogData("blogs", info);
@@ -36,28 +35,24 @@ const BlogForm = () => {
       status: "",
       slug: "",
     });
-
   };
-
- 
-
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setInfo({ ...info, [name]: value });
   };
 
-   useEffect(() => {
-    getBlogData("categories")
+  useEffect(() => {
+    getBlogData("categories");
   }, []);
 
   return (
     <Box
-      sx={{ display: "flex", flexDirection: "column", gap: 2 }}
+      sx={{ display: "flex", flexDirection: "column", gap: 2, width: "100%" }}
       component="form"
       onSubmit={handleSubmit}
     >
-      <Typography>New Blog</Typography>
+      <Typography variant="h3" sx={{fontWeight:"700"}}>New Blog</Typography>
       <FormControl sx={{ gap: 2 }}>
         <TextField
           label="Title"
@@ -126,7 +121,9 @@ const BlogForm = () => {
           size="medium"
           rows={4}
         />
-        <Button type="submit" variant="contained">ADD NEW BLOG</Button>
+        <Button type="submit" variant="contained">
+          ADD NEW BLOG
+        </Button>
       </FormControl>
     </Box>
   );
