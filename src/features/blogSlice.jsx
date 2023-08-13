@@ -5,7 +5,6 @@ const blogSlice = createSlice({
 
   initialState: {
     blogs: [],
-
     categories: [],
     details: [],
     myBlogs:[],

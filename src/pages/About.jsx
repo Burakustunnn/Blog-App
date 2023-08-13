@@ -40,14 +40,14 @@ const About = () => {
         sx={{
           display: "flex",
           justifyContent: "center",
-          alignItems: "center",          
+          alignItems: "center",
           display: "flex",
           flexDirection: "column",
           boxShadow:
             "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset",
           padding: "2rem",
           gap: "1rem",
-          borderRadius:"11rem"
+          borderRadius: "11rem",
         }}
       >
         <Box
@@ -93,16 +93,32 @@ const About = () => {
             alignItems: "center",
           }}
         >
-          <IconButton>
+          <IconButton
+            variant="a"
+            href="https://www.linkedin.com/in/burakustunnn/"
+            target="_blank"
+          >
             <LinkedInIcon fontSize="large" sx={iconIn} />
           </IconButton>
-          <IconButton>
+          <IconButton
+            variant="a"
+            href="https://www.linkedin.com/in/burakustunnn/"
+            target="_blank"
+          >
             <TwitterIcon fontSize="large" sx={iconIn} />
           </IconButton>
-          <IconButton>
+          <IconButton
+            variant="a"
+            href="https://www.linkedin.com/in/burakustunnn/"
+            target="_blank"
+          >
             <YouTubeIcon fontSize="large" sx={iconYou} />
           </IconButton>
-          <IconButton>
+          <IconButton
+            variant="a"
+            href="https://www.linkedin.com/in/burakustunnn/"
+            target="_blank"
+          >
             <InstagramIcon fontSize="large" sx={iconYou} />
           </IconButton>
         </CardActions>

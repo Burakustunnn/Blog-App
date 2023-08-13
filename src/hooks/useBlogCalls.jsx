@@ -71,11 +71,13 @@ const useBlogCalls = () => {
 
   const addLike = async (url, id) => {
     dispatch(fetchStart());
-
     try {
       await axiosWithToken.post(`api/${url}/`);
+      toastSuccessNotify(`successfully`);
       getBlogData("blogs");
-    } catch (error) {}
+    } catch (error) {
+      toastErrorNotify(`Error`);      
+    }
   };
 
   //DELETE BLOG

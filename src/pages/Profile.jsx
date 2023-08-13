@@ -32,13 +32,13 @@ const Profile = () => {
           sx={{ objectFit: "fill" }}
         />
         <CardContent>
-          <Typography variant="h5" mb={2}>
+          <Typography variant="h6" mb={2}>
           Username: {username}
           </Typography>
-          <Typography variant="h5" mb={2}>
+          <Typography variant="h6" mb={2}>
             Email: {email}
           </Typography>
-          <Typography variant="h5" mb={2}>
+          <Typography variant="h6" mb={2}>
            Full Name: {`${first_name} ${last_name}`}
           </Typography>
         </CardContent>

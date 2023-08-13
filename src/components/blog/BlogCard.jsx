@@ -29,8 +29,7 @@ import useBlogCalls from "../../hooks/useBlogCalls";
 const BlogCardD = ({item}) => {
     const navigate = useNavigate();
   const { addLike } = useBlogCalls();
-
-  const { blogs } = useSelector((state) => state.blog);
+  
   const { currentUser } = useSelector((state) => state.auth);
   return (
     <Box key={item.id} sx={{ height: "500px", width: "415px" , borderRadius: "15px"}}>
@@ -96,7 +95,7 @@ const BlogCardD = ({item}) => {
                 sx={{
                   color:
                     item?.likes_n.filter(
-                      (i) => i.user_id === currentUser.id
+                      (e) => e.user_id === currentUser.id
                     )[0] && "red",
                 }}
               />

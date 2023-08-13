@@ -4,8 +4,7 @@ import BlogForm from "../components/blog/BlogForm";
 
 const NewBlog = () => {
   return (
-    <Box
-      container
+    <Box      
       align="center"
       sx={{
         minHeight: "90vh",

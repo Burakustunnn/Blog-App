@@ -22,9 +22,7 @@ import DeleteModal from "../components/blog/DeleteModal";
 import UpdateModal from "../components/blog/UpdateModal";
 import CommentForm from "../components/blog/CommentForm";
 
-
 const Detail = () => {
-  // const dispatch = useDispatch();
   const [commentCard, setCommentCard] = useState(false);
   const { currentUser } = useSelector((state) => state.auth);
   const { id } = useParams();
@@ -36,25 +34,18 @@ const Detail = () => {
 
   const [open, setOpen] = useState(false);
 
- 
-
   useEffect(() => {
     getDetailData(`blogs/${id}`);
     getBlogData("categories");
-    
-    
   }, [details]);
 
- const [info, setInfo] = useState(
-    {
+  const [info, setInfo] = useState({
     title: "",
     content: "",
     image: "",
     category: 0,
     status: "",
-  }
-  );
-
+  });
 
   return (
     <Box sx={{ minHeight: "90vh" }}>

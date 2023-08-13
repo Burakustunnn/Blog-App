@@ -61,8 +61,8 @@ function NavBar() {
   };
   return (
     <AppBar position="static">
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
+      <Container >
+        <Toolbar >
           <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
           <Typography
             variant="h6"
@@ -140,7 +140,7 @@ function NavBar() {
               textDecoration: "none",
             }}
           >
-            LOGO
+            BLOG APP
           </Typography>
           {/* MENU ---------------------------------- */}
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
@@ -157,9 +157,9 @@ function NavBar() {
             ))}
           </Box>
           {/* ************************************************************ */}
-          <Box sx={{ flexGrow: 0 }}>
+          <Box>
             <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+              <IconButton onClick={handleOpenUserMenu} >
                 {currentUser?.image ? (
                   <Avatar
                     title={currentUser.first_name}
