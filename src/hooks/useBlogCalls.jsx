@@ -98,7 +98,7 @@ const useBlogCalls = () => {
     dispatch(fetchStart());
     try {
       await axiosWithToken.put(`api/${url}/${id}/`, info);
-      getBlogData(`${url}/${id}`);
+      getDetailData(`${url}/${id}`);
       toastSuccessNotify(`${url} successfuly updated`);
     } catch (error) {
       dispatch(fetchFail());

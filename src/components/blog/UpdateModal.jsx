@@ -11,11 +11,13 @@ import {
   TextField,
 } from "@mui/material";
 import { useEffect } from "react";
+import { useRef } from "react";
 
 const UpdateModal = ({ updateClose, update, info, setInfo }) => {
   const { categories } = useSelector((state) => state.blog);
   const { details } = useSelector((state) => state.blog);
   const { putBlogData } = useBlogCalls();
+  const inputRef=useRef()
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -28,11 +30,11 @@ const UpdateModal = ({ updateClose, update, info, setInfo }) => {
     updateClose();
   };
   
+  // setInfo(details)
   useEffect(() => {
-    setInfo(details);
-  
+    setInfo(details);  
   }, [])
-  console.log(`details ${details}`)
+  console.log(details)
   
 
   return (
