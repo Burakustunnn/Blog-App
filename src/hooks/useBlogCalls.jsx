@@ -112,8 +112,7 @@ const useBlogCalls = () => {
     console.log(url)
     dispatch(fetchStart());
     try {
-      await axiosWithToken.post(`api/${url}/`, data);
-      // getBlogData(`blogs/${data.post}`);
+      await axiosWithToken.post(`api/${url}/`, data);     
       getDetailData(`blogs/${data.post}`);
       toastSuccessNotify("Comment is successfuly added");
     } catch (error) {

@@ -15,7 +15,8 @@ import { useSelector } from "react-redux";
 import useBlogCalls from "../../hooks/useBlogCalls";
 
 
-  // const likeStatus = () => ( currentUser && ( blogs?.likes_n.filter( ( item ) => ( item.user_id===currentUser.id ) )[0] && "red"))
+// const likeStatus = () => ( currentUser && ( blogs?.likes_n.filter( ( item ) => ( item.user_id===currentUser.id ) )[0] && "red"))
+
 // const butonStyle = {
 //   color: "white",
 //   backgroundColor: "green",
@@ -23,8 +24,6 @@ import useBlogCalls from "../../hooks/useBlogCalls";
 //     backgroundColor: "white",
 //     color: "green",
 //   },
-
-
 // };
 const BlogCardD = ({item}) => {
     const navigate = useNavigate();

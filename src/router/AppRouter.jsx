@@ -11,6 +11,7 @@ import PrivateRouter from "./PrivateRouter";
 import Register from "../pages/Register";
 import MyBlogs from "../pages/MyBlogs";
 import Profile from "../pages/Profile";
+import NotFound from "../pages/NotFound";
 
 const AppRouter = () => {
   return (
@@ -27,6 +28,7 @@ const AppRouter = () => {
           <Route path="/myblogs" element={<MyBlogs />} />
           <Route path="detail/:id" element={<Detail />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="*" element={<NotFound/>} />
         </Route>
       </Routes>
       <Footer />

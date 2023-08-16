@@ -33,13 +33,13 @@ const Profile = () => {
         />
         <CardContent>
           <Typography variant="h6" mb={2}>
-          Username: {username}
+         <Typography variant="span" sx={{color:"#858585"}}>Username: </Typography> {username}
           </Typography>
           <Typography variant="h6" mb={2}>
-            Email: {email}
+          <Typography variant="span" sx={{color:"#858585"}}>Email:</Typography> {email}
           </Typography>
           <Typography variant="h6" mb={2}>
-           Full Name: {`${first_name} ${last_name}`}
+          <Typography variant="span" sx={{color:"#858585"}}>Full Name:</Typography> {`${first_name} ${last_name}`}
           </Typography>
         </CardContent>
       </Card>

@@ -39,8 +39,6 @@ const Detail = () => {
   const { getBlogData } = useBlogCalls();
   const { getDetailData } = useBlogCalls();
 
-  // console.log(details.id);
-
   useEffect(() => {
     getDetailData(`blogs/${id}`);
     getBlogData("categories");
@@ -93,7 +91,7 @@ const Detail = () => {
         <CardActions>
           <IconButton
             color="secondary"
-            onClick={() => addLike("likes",details?.id)}
+            onClick={() => addLike("likes", details?.id)}
           >
             <FavoriteIcon
               sx={{
