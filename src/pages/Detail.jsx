@@ -35,10 +35,11 @@ const Detail = () => {
   const { id } = useParams();
   const { currentUser } = useSelector((state) => state.auth);
   const { details } = useSelector((state) => state.blog);
+  const { addLike } = useBlogCalls();
   const { getBlogData } = useBlogCalls();
   const { getDetailData } = useBlogCalls();
 
-  console.log(details);
+  // console.log(details.id);
 
   useEffect(() => {
     getDetailData(`blogs/${id}`);
@@ -52,6 +53,7 @@ const Detail = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        marginY: "1rem",
       }}
     >
       <Card sx={{ width: 600 }}>
@@ -89,8 +91,18 @@ const Detail = () => {
           <Typography sx={{ color: "#777" }}>{details?.content}</Typography>
         </CardContent>
         <CardActions>
-          <IconButton>
-            <FavoriteIcon />
+          <IconButton
+            color="secondary"
+            onClick={() => addLike("likes",details?.id)}
+          >
+            <FavoriteIcon
+              sx={{
+                color:
+                  details?.likes_n?.filter(
+                    (e) => e.user_id === currentUser?.id
+                  )[0] && "red",
+              }}
+            />
             <span>{details?.likes}</span>
           </IconButton>
           <IconButton onClick={() => setCommentCard(!commentCard)}>

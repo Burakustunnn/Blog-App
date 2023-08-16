@@ -89,7 +89,7 @@ const BlogCardD = ({item}) => {
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <IconButton
               color="secondary"
-              onClick={() => addLike(`likes/${item?.id}`)}
+              onClick={() => addLike("likes",item?.id)}
             >
               <FavoriteIcon
                 sx={{

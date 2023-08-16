@@ -72,11 +72,12 @@ const useBlogCalls = () => {
   const addLike = async (url, id) => {
     dispatch(fetchStart());
     try {
-      await axiosWithToken.post(`api/${url}/`);
+      await axiosWithToken.post(`api/${url}/${id}/`);
       toastSuccessNotify(`successfully`);
       getBlogData("blogs");
+      getDetailData(`blogs/${id}`);
     } catch (error) {
-      toastErrorNotify(`Error`);      
+      toastErrorNotify(`Error`);
     }
   };
 
@@ -108,10 +109,12 @@ const useBlogCalls = () => {
 
   //COMMENT
   const addComment = async (url, data) => {
+    console.log(url)
     dispatch(fetchStart());
     try {
       await axiosWithToken.post(`api/${url}/`, data);
-      getBlogData(`blogs/${data.post}`);
+      // getBlogData(`blogs/${data.post}`);
+      getDetailData(`blogs/${data.post}`);
       toastSuccessNotify("Comment is successfuly added");
     } catch (error) {
       dispatch(fetchFail());

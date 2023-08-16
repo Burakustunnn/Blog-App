@@ -33,7 +33,6 @@ const About = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        padding: "5rem",
       }}
     >
       <Card
