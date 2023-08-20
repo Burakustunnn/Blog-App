@@ -10,10 +10,11 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify";
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
 const useAuthCall = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const BASE_URL = "http://32181.fullstack.clarusway.com/";
 
   //   Login -----
   const login = async (userInfo) => {

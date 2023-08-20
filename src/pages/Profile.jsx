@@ -3,9 +3,7 @@ import {
   CardContent,
   CardMedia,
   Container,
-  Grid,
   Typography,
-  Box,
 } from "@mui/material";
 import { useSelector } from "react-redux";
 
@@ -22,7 +20,7 @@ const Profile = () => {
       }}
     >
       <Card
-        sx={{ display: "flex", flexDirection: "column", gap: 4,borderRadius:"1.5rem" }}
+        sx={{display: "flex", flexDirection: "column", gap: 4,borderRadius:"1.5rem",margin: "1rem 0",}}
         align="center"
       >
         <CardMedia

@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   fetchStart,
   getSuccess,
@@ -109,10 +109,9 @@ const useBlogCalls = () => {
 
   //COMMENT
   const addComment = async (url, data) => {
-    console.log(url)
     dispatch(fetchStart());
     try {
-      await axiosWithToken.post(`api/${url}/`, data);     
+      await axiosWithToken.post(`api/${url}/`, data);
       getDetailData(`blogs/${data.post}`);
       toastSuccessNotify("Comment is successfuly added");
     } catch (error) {

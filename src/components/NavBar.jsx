@@ -61,8 +61,8 @@ function NavBar() {
   };
   return (
     <AppBar position="static">
-      <Container >
-        <Toolbar >
+      <Container>
+        <Toolbar>
           <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
           <Typography
             variant="h6"
@@ -125,7 +125,7 @@ function NavBar() {
           </Box>
           <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
           <Typography
-            variant="h5"
+            variant="h6"
             noWrap
             component="a"
             href=""
@@ -138,6 +138,7 @@ function NavBar() {
               letterSpacing: ".3rem",
               color: "inherit",
               textDecoration: "none",
+              fontSize: "0.8rem",
             }}
           >
             BLOG APP
@@ -159,7 +160,7 @@ function NavBar() {
           {/* ************************************************************ */}
           <Box>
             <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} >
+              <IconButton onClick={handleOpenUserMenu}>
                 {currentUser?.image ? (
                   <Avatar
                     title={currentUser.first_name}
